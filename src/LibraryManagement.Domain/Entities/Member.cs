@@ -1,5 +1,7 @@
 namespace LibraryManagement.Domain.Entities;
 
+using LibraryManagement.Domain.Enums;
+
 public class Member
 {
     public int Id { get; set; }
