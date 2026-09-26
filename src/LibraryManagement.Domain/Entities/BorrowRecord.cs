@@ -13,4 +13,8 @@ public class BorrowRecord
 
     public int MemberId { get; set; }
     public Member Member { get; set; } = null!;
+
+    public string? Notes { get; set; }
+
+    public bool IsOverdue => ReturnDate == null && DateTime.UtcNow > DueDate;
 }
