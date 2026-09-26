@@ -10,16 +10,13 @@ public interface IBookService
     Task UpdateAsync(int id, UpdateBookDto dto, CancellationToken ct = default);
     Task DeleteAsync(int id, CancellationToken ct = default);
 
-    Task<IEnumerable<BookDto>> SearchAsync(
-        string? searchTerm = null,
-        string? title = null,
-        string? authorName = null,
-        int? authorId = null,
-        string? isbn = null,
-        int? categoryId = null,
-        CancellationToken ct = default);
-
+    Task<IEnumerable<BookDto>> SearchByTitleAsync(string title, CancellationToken ct = default);
+    Task<BookDto?> GetByIsbnAsync(string isbn, CancellationToken ct = default);
+    Task<IEnumerable<BookDto>> GetByCategoryIdAsync(int categoryId, CancellationToken ct = default);
+    Task<IEnumerable<BookDto>> GetByAuthorIdAsync(int authorId, CancellationToken ct = default);
     Task<bool> IsAvailableAsync(int bookId, CancellationToken ct = default);
+
+    Task<IEnumerable<BookDto>> SearchAsync(string searchTerm, CancellationToken ct = default);
 
     Task<IEnumerable<BorrowRecordDto>> GetBorrowHistoryAsync(int bookId, CancellationToken ct = default);
 }
