@@ -1,69 +1,69 @@
-📚 Library Management System API
+# 📚 Library Management System API
 
-A RESTful Web API built with ASP.NET Core and Entity Framework Core following Clean Architecture principles. This system enables librarians to efficiently manage books, authors, categories, members, and borrowing workflows.
+A RESTful Web API built with **ASP.NET Core** and **Entity Framework Core** following **Clean Architecture** principles. This system enables librarians to efficiently manage books, authors, categories, members, and borrowing workflows.
 
-🎯 Project Overview & Purpose
+## 🎯 Project Overview & Purpose
 
 The main objective of this project is to provide a robust back-end system for managing library operations. It automates day-to-day administrative tasks such as tracking inventory, keeping records of members and authors, and handling book borrowing and returns reliably.
 
-🏗️ Architecture & Technology Stack
+## 🏗️ Architecture & Technology Stack
 
-Framework: ASP.NET Core Web API
+* **Framework:** ASP.NET Core Web API
 
-Database Access: Entity Framework Core
+* **Database Access:** Entity Framework Core (Code-First Approach)
 
-Database: SQL Server
+* **Database:** SQL Server
 
-Architecture Pattern: Clean Architecture
+* **Architecture Pattern:** Clean Architecture (Separation of Concerns)
 
-Documentation: Swagger / OpenAPI
+* **Documentation:** Swagger / OpenAPI
 
-✨ Core Features
+## ✨ Core Features
 
-📖 1. Book Management
+### 📖 1. Book Management
 
-Add, update, and delete books.
+* Add, update, and delete books.
 
-Retrieve all books or get detailed information for a specific book.
+* Retrieve all books or get detailed information for a specific book.
 
-Search books by Title or ISBN.
+* Search books by **Title** or **ISBN**.
 
-Filter books by Category or Author.
+* Filter books by **Category** or **Author**.
 
-Check real-time book availability for borrowing.
+* Check real-time book availability for borrowing.
 
-✍️ 2. Author Management
+### ✍️ 2. Author Management
 
-Create, update, and delete authors.
+* Create, update, and delete authors.
 
-View author profiles and list all books published by a specific author.
+* View author profiles and list all books published by a specific author.
 
-🏷️ 3. Category Management
+### 🏷️ 3. Category Management
 
-Manage book categories (Create, Read, Update, Delete).
+* Manage book categories (Create, Read, Update, Delete).
 
-Retrieve all books belonging to a specific category.
+* Retrieve all books belonging to a specific category.
 
-👤 4. Member Management
+### 👤 4. Member Management
 
-Register, update, and remove library members.
+* Register, update, and remove library members.
 
-View member profiles and track member borrowing history.
+* View member profiles and track member borrowing history.
 
-🔄 5. Borrowing & Return Operations
+### 🔄 5. Borrowing & Return Operations
 
-Borrow Books: Issue books to active members.
+* **Borrow Books:** Issue books to active members.
 
-Return Books: Process book returns and update inventory state.
+* **Return Books:** Process book returns and update inventory state.
 
-Validation: Automatic checks to prevent borrowing already unavailable books.
+* **Validation:** Automatic checks to prevent borrowing already unavailable books.
 
-Due Date Calculation: Automatically tracks and calculates borrowing deadlines and history.
+* **Due Date Calculation:** Automatically tracks and calculates borrowing deadlines and history.
 
-🔐 Bonus Features
+## 🔐 Bonus Features
 
-Authentication: User login functionality using JWT (JSON Web Tokens).
+* **Authentication:** User login functionality using **JWT (JSON Web Tokens)**.
 
-Authorization: Role-based access control with Admin and Librarian roles.
+* **Authorization:** Role-based access control with **Admin** and **Librarian** roles.
 
-Interactive API Docs: Integrated Swagger UI for testing endpoints directly.
+* **Interactive API Docs:** Integrated **Swagger UI** for testing endpoints directly.
