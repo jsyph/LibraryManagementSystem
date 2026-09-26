@@ -47,7 +47,7 @@ public class Member
         Status = MemberStatus.Active;
     }
 
-    public void RenewMembership(int months = 12)
+    public void RenewMembership(int months)
     {
         var baseDate = DateTime.UtcNow > MembershipEndDate ? DateTime.UtcNow : MembershipEndDate;
         MembershipEndDate = baseDate.AddMonths(months);
