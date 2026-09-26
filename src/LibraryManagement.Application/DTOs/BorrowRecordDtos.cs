@@ -1,7 +1,5 @@
 namespace LibraryManagement.Application.DTOs;
 
-using LibraryManagement.Domain.Enums;
-
 public record BorrowRecordDto(
     int Id,
     DateTime BorrowDate,

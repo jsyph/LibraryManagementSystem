@@ -45,3 +45,11 @@ public record UpdateMemberDto(
     string? StudentId,
     string? InstitutionName
 );
+
+public record BanMemberDto(
+    string Reason
+);
+
+public record RenewMembershipDto(
+    int Months = 1
+);

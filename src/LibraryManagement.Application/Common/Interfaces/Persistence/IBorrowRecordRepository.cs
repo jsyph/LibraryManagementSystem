@@ -1,4 +1,4 @@
-namespace LibraryManagement.Application.Common.Interfaces;
+namespace LibraryManagement.Application.Common.Interfaces.Persistence;
 
 using LibraryManagement.Domain.Entities;
 
