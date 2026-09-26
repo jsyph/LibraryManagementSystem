@@ -8,6 +8,13 @@ public class Member
     public string LastName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;
+    public DateTime DateOfBirth { get; set; }
+
+    public MemberType Type { get; set; }
+    public string? NationalId { get; set; }
+    public string? PassportNumber { get; set; }
+    public string? StudentId { get; set; }
+    public string? InstitutionName { get; set; }
 
     public DateTime RegistrationDate { get; set; } = DateTime.UtcNow;
     public DateTime MembershipEndDate { get; set; }
