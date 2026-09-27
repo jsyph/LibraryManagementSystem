@@ -1,6 +1,6 @@
 namespace LibraryManagement.Domain.Enums;
 
-public enum MemberType
+public enum UserType
 {
     NationalAdult = 1,
     NationalStudent = 2,
