@@ -9,6 +9,8 @@ public class BookCopy
     public int BookId { get; set; }
     public Book Book { get; set; } = null!;
 
+    public DateTime DateAdded { get; set; } = DateTime.Now;
+
     public BookStatus Status { get; set; } = BookStatus.Available;
 
     public ICollection<BorrowRecord> BorrowRecords { get; set; } = new List<BorrowRecord>();
