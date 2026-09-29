@@ -10,6 +10,8 @@ public class Book
     public string? Description { get; set; }
     public int PublicationYear { get; set; }
 
+    public DateTime DateAdded;
+
     public int AuthorId { get; set; }
     public Author Author { get; set; } = null!;
 
