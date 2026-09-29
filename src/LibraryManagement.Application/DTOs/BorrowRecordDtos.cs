@@ -6,22 +6,23 @@ public record BorrowRecordDto(
     DateTime DueDate,
     DateTime? ReturnDate,
     int BookId,
+    int BookCopyId,
     string BookTitle,
     string BookISBN,
-    int MemberId,
-    string MemberFirstName,
-    string MemberLastName,
+    int UserId,
+    string UserFirstName,
+    string UserLastName,
     string? Notes,
     bool IsOverdue
 );
 
+// Used by librarians and admin
 public record BorrowBookRequestDto(
-    int MemberId,
-    int BookId,
+    int BookCopyId,
     string? Notes
 );
 
+// Used by librarians and admin
 public record ReturnBookRequestDto(
-    int BorrowRecordId,
     string? Notes
 );

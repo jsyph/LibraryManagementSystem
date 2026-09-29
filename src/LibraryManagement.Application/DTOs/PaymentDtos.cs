@@ -1,0 +1,26 @@
+namespace LibraryManagement.Application.DTOs;
+
+using LibraryManagement.Domain.Enums;
+
+public record PaymentDto(
+    int Id,
+    int BorrowRecordId,
+    decimal Amount,
+    PaymentMethod PaymentMethod,
+    DateTime PaymentDate,
+    PaymentStatus Status,
+    string? Notes
+);
+
+// Used by librarians and admin
+public record CreatePaymentDto(
+    int BorrowRecordId,
+    decimal Amount,
+    PaymentMethod PaymentMethod,
+    string? Notes
+);
+
+// Used by librarians and admin
+public record ChangePaymentStatusDto(
+    PaymentStatus Status
+);

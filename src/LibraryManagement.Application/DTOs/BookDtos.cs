@@ -1,34 +1,47 @@
 namespace LibraryManagement.Application.DTOs;
 
-using LibraryManagement.Domain.Enums;
-
 public record BookDto(
     int Id,
     string Title,
     string ISBN,
+    string Language,
     string? Description,
     int PublicationYear,
-    BookStatus Status,
     int AuthorId,
     string AuthorName,
     int CategoryId,
-    string CategoryName
+    string CategoryName,
+    int TotalCopyCount,
+    int AvailableCopyCount,
+    DateTime DateAdded
 );
 
+// Used by librarians and admin
 public record CreateBookDto(
     string Title,
     string ISBN,
     string? Description,
     int PublicationYear,
     int AuthorId,
-    int CategoryId
+    int CategoryId,
+    string Language = "en"
 );
 
+// Used by librarians and admin
 public record UpdateBookDto(
     string Title,
     string ISBN,
     string? Description,
     int PublicationYear,
     int AuthorId,
-    int CategoryId
+    int CategoryId,
+    string Language = "en"
+);
+
+// Used by librarians and admin and user
+public record BookSearchFilterDto(
+    string? Title,
+    string? ISBN,
+    int? AuthorId,
+    int? CategoryId
 );
