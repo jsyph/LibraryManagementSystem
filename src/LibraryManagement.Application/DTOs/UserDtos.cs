@@ -144,6 +144,7 @@ public record SearchUserDto(
     string? LastName,
     string? Email,
     string? PhoneNumber,
+    DateTime? DateAdded,
     UserRole? Role
 );
 
