@@ -21,6 +21,11 @@ public record CreatePaymentDto(
 );
 
 // Used by librarians and admin
-public record ChangePaymentStatusDto(
-    PaymentStatus Status
+public record ChangePaymentStatusDto(PaymentStatus Status);
+
+public record SearchPaymentDto(
+    PaymentMethod? PaymentMethod,
+    DateTime? PaymentDate,
+    PaymentStatus? Status,
+    string? Notes
 );
