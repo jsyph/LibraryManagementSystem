@@ -4,16 +4,28 @@ using LibraryManagement.Domain.Entities;
 
 public interface IBookRepository
 {
-    Task<Book?> GetByIdAsync(int id);
-    Task<IEnumerable<Book>> GetAllAsync();
-    Task<IEnumerable<Book>> SearchByTitleAsync(string title);
-    Task<IEnumerable<Book>> SearchByDescriptionContentAsync(string descriptionContent);
-    Task<Book?> GetByIsbnAsync(string isbn);
-    Task<IEnumerable<Book>> GetByCategoryIdAsync(int categoryId);
-    Task<IEnumerable<Book>> GetByAuthorIdAsync(int authorId);
-    Task AddAsync(Book book);
-    Task UpdateAsync(Book book);
-    Task DeleteAsync(Book book);
-    Task<bool> ExistsAsync(int id);
-    Task<bool> IsIsbnUniqueAsync(string isbn);
+    Task<Book?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<IEnumerable<Book>> SearchByTitleAsync(
+        string title,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<Book>> SearchByDescriptionContentAsync(
+        string descriptionContent,
+        CancellationToken cancellationToken = default
+    );
+    Task<Book?> GetByIsbnAsync(string isbn, CancellationToken cancellationToken = default);
+    Task<IEnumerable<Book>> GetByCategoryIdAsync(
+        int categoryId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<Book>> GetByAuthorIdAsync(
+        int authorId,
+        CancellationToken cancellationToken = default
+    );
+    Task AddAsync(Book book, CancellationToken cancellationToken = default);
+    Task UpdateAsync(Book book, CancellationToken cancellationToken = default);
+    Task DeleteAsync(Book book, CancellationToken cancellationToken = default);
+    Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
+    Task<bool> IsIsbnUniqueAsync(string isbn, CancellationToken cancellationToken = default);
 }

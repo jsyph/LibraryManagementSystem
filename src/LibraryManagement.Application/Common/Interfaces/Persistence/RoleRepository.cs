@@ -4,11 +4,11 @@ using LibraryManagement.Domain.Entities;
 
 public interface IRoleRepository
 {
-    Task<Role?> GetByIdAsync(int id);
-    Task<IEnumerable<Role>> GetAllAsync();
-    Task AddAsync(Role role);
-    Task UpdateAsync(Role role);
-    Task DeleteAsync(Role role);
-    Task<bool> ExistsAsync(int id);
-    Task<IEnumerable<Role>> SearchByTitle(string title);
+    Task<Role?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<IEnumerable<Role>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task AddAsync(Role role, CancellationToken cancellationToken = default);
+    Task UpdateAsync(Role role, CancellationToken cancellationToken = default);
+    Task DeleteAsync(Role role, CancellationToken cancellationToken = default);
+    Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
+    Task<IEnumerable<Role>> SearchByTitle(string title, CancellationToken cancellationToken = default);
 }

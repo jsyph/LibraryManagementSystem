@@ -4,14 +4,28 @@ using LibraryManagement.Domain.Entities;
 
 public interface IBorrowRecordRepository
 {
-    Task<BorrowRecord?> GetByIdAsync(int id);
-    Task<BorrowRecord?> GetActiveRecordByBookCopyIdAsync(int bookCopyId);
-    Task<IEnumerable<BorrowRecord>> GetBorrowHistoryByBookCopyIdAsync(int bookCopyId);
-    Task<IEnumerable<BorrowRecord>> GetActiveRecordsByUserIdAsync(int userId);
-    Task<IEnumerable<BorrowRecord>> GetAllRecordsByUserIdAsync(int userId);
-    Task<IEnumerable<BorrowRecord>> GetOverdueRecordsAsync();
-    Task<IEnumerable<BorrowRecord>> GetAllAsync();
-    Task AddAsync(BorrowRecord record);
-    Task UpdateAsync(BorrowRecord record);
-    Task DeleteAsync(int id);
+    Task<BorrowRecord?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<BorrowRecord?> GetActiveRecordByBookCopyIdAsync(
+        int bookCopyId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecord>> GetBorrowHistoryByBookCopyIdAsync(
+        int bookCopyId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecord>> GetActiveRecordsByUserIdAsync(
+        int userId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecord>> GetAllRecordsByUserIdAsync(
+        int userId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecord>> GetOverdueRecordsAsync(
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecord>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task AddAsync(BorrowRecord record, CancellationToken cancellationToken = default);
+    Task UpdateAsync(BorrowRecord record, CancellationToken cancellationToken = default);
+    Task DeleteAsync(int id, CancellationToken cancellationToken = default);
 }

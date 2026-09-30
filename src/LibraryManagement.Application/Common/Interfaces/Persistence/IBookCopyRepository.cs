@@ -5,12 +5,15 @@ using LibraryManagement.Domain.Enums;
 
 public interface IBookCopyRepository
 {
-    Task<BookCopy?> GetByIdAsync(int id);
-    Task<IEnumerable<BookCopy>> GetAllAsync();
-    Task<IEnumerable<BookCopy>> GetByStatusAsync(BookStatus bookStatus);
-    Task AddAsync(BookCopy bookCopy);
-    Task UpdateAsync(BookCopy bookCopy);
-    Task DeleteAsync(BookCopy bookCopy);
-    Task<bool> ExistsAsync(int id);
-    Task<bool> IsAvailableAsync(int id);
+    Task<BookCopy?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<IEnumerable<BookCopy>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<IEnumerable<BookCopy>> GetByStatusAsync(
+        BookStatus bookStatus,
+        CancellationToken cancellationToken = default
+    );
+    Task AddAsync(BookCopy bookCopy, CancellationToken cancellationToken = default);
+    Task UpdateAsync(BookCopy bookCopy, CancellationToken cancellationToken = default);
+    Task DeleteAsync(BookCopy bookCopy, CancellationToken cancellationToken = default);
+    Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
+    Task<bool> IsAvailableAsync(int id, CancellationToken cancellationToken = default);
 }
