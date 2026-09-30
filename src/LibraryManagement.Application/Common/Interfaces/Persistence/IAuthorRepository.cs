@@ -6,7 +6,7 @@ public interface IAuthorRepository
 {
     Task<Author?> GetByIdAsync(int id);
     Task<IEnumerable<Author>> GetAllAsync();
-    Task<IEnumerable<Author>> SearchByNameAsync(string name);
+    Task<IEnumerable<Author>> Search(string? FirstName, string? LastName, string? Nationality);
     Task AddAsync(Author author);
     Task UpdateAsync(Author author);
     Task DeleteAsync(Author author);
