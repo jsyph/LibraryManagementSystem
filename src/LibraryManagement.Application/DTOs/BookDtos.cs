@@ -39,9 +39,6 @@ public record UpdateBookDto(
 );
 
 // Used by librarians and admin and user
-public record BookSearchFilterDto(
-    string? Title,
-    string? ISBN,
-    int? AuthorId,
-    int? CategoryId
+public record TitleDescriptionBookSearchFilterDto(
+    string SearchTerm
 );
