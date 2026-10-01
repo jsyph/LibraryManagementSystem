@@ -10,5 +10,5 @@ public interface IRoleRepository
     Task UpdateAsync(Role role, CancellationToken cancellationToken = default);
     Task DeleteAsync(Role role, CancellationToken cancellationToken = default);
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
-    Task<IEnumerable<Role>> SearchByTitle(string title, CancellationToken cancellationToken = default);
+    Task<IEnumerable<Role>> SearchAsync(string title, CancellationToken cancellationToken = default);
 }

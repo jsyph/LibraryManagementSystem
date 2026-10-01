@@ -6,14 +6,11 @@ public interface IBookRepository
 {
     Task<Book?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
     Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken = default);
-    Task<IEnumerable<Book>> SearchByTitleAsync(
-        string title,
+    Task<IEnumerable<Book>> SearchAsync(
+        string searchTerm,
         CancellationToken cancellationToken = default
     );
-    Task<IEnumerable<Book>> SearchByDescriptionContentAsync(
-        string descriptionContent,
-        CancellationToken cancellationToken = default
-    );
+
     Task<Book?> GetByIsbnAsync(string isbn, CancellationToken cancellationToken = default);
     Task<IEnumerable<Book>> GetByCategoryIdAsync(
         int categoryId,

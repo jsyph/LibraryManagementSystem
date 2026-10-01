@@ -10,7 +10,7 @@ public interface ICategoryRepository
     Task UpdateAsync(Category category, CancellationToken cancellationToken = default);
     Task DeleteAsync(Category category, CancellationToken cancellationToken = default);
     Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default);
-    Task<IEnumerable<Category>> SearchByName(
+    Task<IEnumerable<Category>> SearchAsync(
         string name,
         CancellationToken cancellationToken = default
     );
