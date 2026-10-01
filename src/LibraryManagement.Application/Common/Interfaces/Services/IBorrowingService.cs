@@ -4,12 +4,38 @@ using LibraryManagement.Application.DTOs;
 
 public interface IBorrowingService
 {
-    Task<BorrowRecordDto> BorrowBookAsync(BorrowBookRequestDto dto, CancellationToken ct = default);
-    Task<BorrowRecordDto> ReturnBookAsync(ReturnBookRequestDto dto, CancellationToken ct = default);
-
-    Task<BorrowRecordDto> GetByIdAsync(int id, CancellationToken ct = default);
-    Task<IEnumerable<BorrowRecordDto>> GetBookBorrowHistoryAsync(int bookId, CancellationToken ct = default);
-    Task<IEnumerable<BorrowRecordDto>> GetMemberBorrowHistoryAsync(int memberId, CancellationToken ct = default);
-    Task<IEnumerable<BorrowRecordDto>> GetActiveBorrowsByMemberAsync(int memberId, CancellationToken ct = default);
-    Task<IEnumerable<BorrowRecordDto>> GetOverdueBorrowsAsync(CancellationToken ct = default);
+    Task<BorrowRecordDto?> GetRecordByIdAsync(
+        int id,
+        CancellationToken cancellationToken = default
+    );
+    Task<BorrowRecordDto?> GetActiveRecordByBookCopyIdAsync(
+        int bookCopyId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecordDto>> GetAllRecordsByBookCopyIdAsync(
+        int bookCopyId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecordDto>> GetActiveRecordsByUserIdAsync(
+        int userId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecordDto>> GetAllRecordsByUserIdAsync(
+        int userId,
+        CancellationToken cancellationToken = default
+    );
+    Task<IEnumerable<BorrowRecordDto>> GetAllOverdueRecordsAsync(
+        CancellationToken cancellationToken = default
+    );
+    Task<BorrowRecordDto> BorrowBookAsync(
+        int bookCopyId,
+        CreateBorrowRecordDto dto,
+        CancellationToken cancellationToken = default
+    );
+    Task ReturnBorrowedBookAsync(
+        int bookCopyId,
+        ReturnBorrowedBookDto dto,
+        CancellationToken cancellationToken = default
+    );
+    Task DeleteRecordAsync(int id, CancellationToken cancellationToken = default);
 }
