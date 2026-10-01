@@ -7,6 +7,10 @@ public interface IBookCopyRepository
 {
     Task<BookCopy?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
     Task<IEnumerable<BookCopy>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<IEnumerable<BookCopy>> GetAllByBookIdAsync(
+        int bookId,
+        CancellationToken cancellationToken = default
+    );
     Task<IEnumerable<BookCopy>> GetByStatusAsync(
         BookStatus bookStatus,
         CancellationToken cancellationToken = default

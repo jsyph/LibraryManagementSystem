@@ -32,6 +32,11 @@ public interface IBookCatalogService
         int bookId,
         CancellationToken cancellationToken = default
     );
+    Task<IEnumerable<BookCopyDto>> GetAllBookCopiesByBookIdAsync(
+        int bookId,
+        CancellationToken cancellationToken = default
+    );
+
     Task<IEnumerable<BookCopyDto>> GetBookCopiesByStatusAsync(
         int bookStatus,
         CancellationToken cancellationToken = default

@@ -97,8 +97,7 @@ public record UpdateMemberDto(
     string FirstName,
     string LastName,
     string Email,
-    string PhoneNumber,
-    int MembershipDurationMonths
+    string PhoneNumber
 );
 
 public record UpdateLibrarianDto(
@@ -125,7 +124,8 @@ public record SearchUserDto(
     string? Email,
     string? PhoneNumber,
     DateTime? DateAdded,
-    UserRole? Role
+    UserRole? Role,
+    bool? IsActive
 );
 
 #endregion
