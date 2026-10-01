@@ -17,7 +17,7 @@ public record BorrowRecordDto(
 );
 
 // Used by librarians and admin
-public record CreateBorrowRecordDto(int UserId, string? Notes);
+public record CreateBorrowRecordDto(int UserId, int BorrowingPeriodDays, string? Notes);
 
 // Used by librarians and admin
 public record ReturnBorrowedBookDto(string? Notes);
