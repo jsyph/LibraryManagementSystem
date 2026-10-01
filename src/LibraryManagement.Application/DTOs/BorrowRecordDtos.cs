@@ -17,12 +17,7 @@ public record BorrowRecordDto(
 );
 
 // Used by librarians and admin
-public record BorrowBookRequestDto(
-    int BookCopyId,
-    string? Notes
-);
+public record CreateBorrowRecordDto(int UserId, string? Notes);
 
 // Used by librarians and admin
-public record ReturnBookRequestDto(
-    string? Notes
-);
+public record ReturnBorrowedBookDto(string? Notes);
