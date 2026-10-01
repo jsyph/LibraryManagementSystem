@@ -8,6 +8,7 @@ public record PaymentDto(
     decimal Amount,
     PaymentMethod PaymentMethod,
     DateTime PaymentDate,
+    DateTime LastStatusChange,
     PaymentStatus Status,
     string? Notes
 );
@@ -26,6 +27,9 @@ public record ChangePaymentStatusDto(PaymentStatus Status);
 public record SearchPaymentDto(
     PaymentMethod? PaymentMethod,
     DateTime? PaymentDate,
+    DateTime? LastStatusChange,
     PaymentStatus? Status,
     string? Notes
 );
+
+public record PaymentsWithinDateRangeDto(DateTime StartTime, DateTime EndTime);

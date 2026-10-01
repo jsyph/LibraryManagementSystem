@@ -12,6 +12,7 @@ public class Payment
     public decimal Amount { get; set; }
     public PaymentMethod PaymentMethod { get; set; }
     public DateTime PaymentDate { get; set; } = DateTime.UtcNow;
+    public DateTime LastStatusChange { get; set; } = DateTime.UtcNow;
     public PaymentStatus Status { get; set; } = PaymentStatus.Pending;
     public string? Notes { get; set; }
 }
