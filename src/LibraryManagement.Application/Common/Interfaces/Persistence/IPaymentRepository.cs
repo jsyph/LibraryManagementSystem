@@ -11,18 +11,19 @@ public interface IPaymentRepository
         int borrowRecordId,
         CancellationToken cancellationToken = default
     );
-    Task<IEnumerable<Payment>> GetByPaymentMethodAsync(
-        PaymentMethod paymentMethod,
+    Task<IEnumerable<Payment>> GetAllWithinDateRangeAsync(
+        DateTime startDate,
+        DateTime endDate,
         CancellationToken cancellationToken = default
     );
-    Task<IEnumerable<Payment>> GetByDateAsync(
-        DateTime date,
+    Task<IEnumerable<Payment>> SearchPaymentAsync(
+        PaymentMethod? PaymentMethod,
+        DateTime? PaymentDate,
+        PaymentStatus? Status,
+        string? Notes,
         CancellationToken cancellationToken = default
     );
-    Task<IEnumerable<Payment>> GetByStatusAsync(
-        PaymentStatus status,
-        CancellationToken cancellationToken = default
-    );
+
     Task AddAsync(Payment payment, CancellationToken cancellationToken = default);
     Task UpdateAsync(Payment payment, CancellationToken cancellationToken = default);
     Task DeleteAsync(Payment payment, CancellationToken cancellationToken = default);
