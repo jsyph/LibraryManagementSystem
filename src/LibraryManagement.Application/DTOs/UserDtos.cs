@@ -22,11 +22,9 @@ public record MemberDto(
     string PhoneNumber,
     bool IsActive,
     DateTime DateAdded,
-
     DateTime MembershipStartDate,
     DateTime MembershipExpiryDate,
     int TotalBorrowRecords
-
 ) : UserDto(Id, FirstName, LastName, Email, PhoneNumber, IsActive, DateAdded, UserRole.Member);
 
 public record LibrarianDto(
@@ -37,10 +35,8 @@ public record LibrarianDto(
     string PhoneNumber,
     bool IsActive,
     DateTime DateAdded,
-
     DateTime HireDate,
     string Department
-
 ) : UserDto(Id, FirstName, LastName, Email, PhoneNumber, IsActive, DateAdded, UserRole.Librarian);
 
 public record AdminDto(
@@ -95,12 +91,7 @@ public record CreateAdminDto(
 
 #region update DTOs
 
-public record UpdateUserDto(
-    string FirstName,
-    string LastName,
-    string Email,
-    string PhoneNumber
-);
+public record UpdateUserDto(string FirstName, string LastName, string Email, string PhoneNumber);
 
 public record UpdateMemberDto(
     string FirstName,
@@ -118,22 +109,11 @@ public record UpdateLibrarianDto(
     string Department
 );
 
-public record ChangeUserPasswordHashDto(
-    string NewPasswordHash
-);
+public record UpdateAdminDto(string FirstName, string LastName, string Email, string PhoneNumber);
 
-public record ActivateUserDto(
-    int UserId
-);
+public record ChangeUserPasswordHashDto(string NewPasswordHash);
 
-public record DeactivateUserDto(
-    int UserId
-);
-
-public record RenewMembershipDto(
-    int UserId,
-    int Months
-);
+public record RenewMembershipDto(int UserId, int Months);
 
 #endregion
 
