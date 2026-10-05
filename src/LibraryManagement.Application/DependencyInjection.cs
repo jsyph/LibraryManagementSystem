@@ -7,7 +7,10 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<BookCatalogService>();
+        services.AddScoped<BookService>();
+        services.AddScoped<BookCopyService>();
+        services.AddScoped<AuthorService>();
+        services.AddScoped<CategoryService>();
         services.AddScoped<BorrowingService>();
         services.AddScoped<PaymentService>();
         services.AddScoped<UserService>();
