@@ -85,7 +85,7 @@ public class BookService : IBookService
 
         await unitOfWork.Books.AddAsync(book, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
-        return MapToDto(book);
+        return (await GetBookByIdAsync(book.Id, cancellationToken))!;
     }
 
     public async Task UpdateBookAsync(
@@ -153,11 +153,11 @@ public class BookService : IBookService
             book.Description,
             book.PublicationYear,
             book.AuthorId,
-            $"{book.Author.FirstName} {book.Author.LastName}",
+            book.Author != null ? $"{book.Author.FirstName} {book.Author.LastName}" : string.Empty,
             book.CategoryId,
-            book.Category.Name,
-            book.Copies.Count,
-            book.AvailableCopyCount,
+            book.Category != null ? book.Category.Name : string.Empty,
+            book.Copies?.Count ?? 0,
+            book.Copies != null ? book.AvailableCopyCount : 0,
             book.DateAdded
         );
 }
