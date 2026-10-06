@@ -35,7 +35,12 @@ public sealed class BookRepository : IBookRepository
         CancellationToken cancellationToken = default
     )
     {
-        var books = await DbSet.AsNoTracking().ToListAsync(cancellationToken);
+        var books = await DbSet
+            .AsNoTracking()
+            .Include(book => book.Author)
+            .Include(book => book.Category)
+            .Include(book => book.Copies)
+            .ToListAsync(cancellationToken);
 
         return FuzzySearch.Rank(books, searchTerm, book => [book.Title, book.Description]);
     }
@@ -43,7 +48,12 @@ public sealed class BookRepository : IBookRepository
     public async Task<Book?> GetByIsbnAsync(
         string isbn,
         CancellationToken cancellationToken = default
-    ) => await DbSet.FirstOrDefaultAsync(book => book.ISBN == isbn, cancellationToken);
+    ) =>
+        await DbSet
+            .Include(book => book.Author)
+            .Include(book => book.Category)
+            .Include(book => book.Copies)
+            .FirstOrDefaultAsync(book => book.ISBN == isbn, cancellationToken);
 
     public async Task<IEnumerable<Book>> GetByCategoryIdAsync(
         int categoryId,
@@ -51,6 +61,9 @@ public sealed class BookRepository : IBookRepository
     ) =>
         await DbSet
             .AsNoTracking()
+            .Include(book => book.Author)
+            .Include(book => book.Category)
+            .Include(book => book.Copies)
             .Where(book => book.CategoryId == categoryId)
             .ToListAsync(cancellationToken);
 
@@ -60,6 +73,9 @@ public sealed class BookRepository : IBookRepository
     ) =>
         await DbSet
             .AsNoTracking()
+            .Include(book => book.Author)
+            .Include(book => book.Category)
+            .Include(book => book.Copies)
             .Where(book => book.AuthorId == authorId)
             .ToListAsync(cancellationToken);
 
