@@ -14,18 +14,12 @@ public static class AuthorEndpoints
     {
         var authorItems = app.MapGroup("/author");
 
-        authorItems.MapGet("/search", SearchAuthorsAsync)
-            .WithSummary("Search authors");
-        authorItems.MapGet("/{id:int}", GetAuthorByIdAsync)
-            .WithSummary("Get an author by ID");
-        authorItems.MapPut("/{id:int}", UpdateAuthorAsync)
-            .WithSummary("Update an author");
-        authorItems.MapDelete("/{id:int}", DeleteAuthorAsync)
-            .WithSummary("Delete an author");
-        authorItems.MapGet("/", GetAllAuthorsAsync)
-            .WithSummary("Get all authors");
-        authorItems.MapPost("/", AddAuthorAsync)
-            .WithSummary("Create an author");
+        authorItems.MapGet("/search", SearchAuthorsAsync).WithSummary("Search authors");
+        authorItems.MapGet("/{id:int}", GetAuthorByIdAsync).WithSummary("Get an author by ID");
+        authorItems.MapPut("/{id:int}", UpdateAuthorAsync).WithSummary("Update an author");
+        authorItems.MapDelete("/{id:int}", DeleteAuthorAsync).WithSummary("Delete an author");
+        authorItems.MapGet("/", GetAllAuthorsAsync).WithSummary("Get all authors");
+        authorItems.MapPost("/", AddAuthorAsync).WithSummary("Create an author");
 
         return authorItems;
     }

@@ -14,22 +14,28 @@ public static class BookCopyEndpoints
     {
         var bookCopyItems = app.MapGroup("/book/copies");
 
-        bookCopyItems.MapGet("/{id:int}", GetBookCopyByIdAsync)
+        bookCopyItems
+            .MapGet("/{id:int}", GetBookCopyByIdAsync)
             .WithSummary("Get a book copy by ID");
-        bookCopyItems.MapGet("/b/{bookId:int}", GetAllBookCopiesByBookIdAsync)
+        bookCopyItems
+            .MapGet("/b/{bookId:int}", GetAllBookCopiesByBookIdAsync)
             .WithSummary("Get book copies by book ID");
-        bookCopyItems.MapGet("/b/{bookId:int}/all", GetAllBookCopiesAsync)
+        bookCopyItems
+            .MapGet("/b/{bookId:int}/all", GetAllBookCopiesAsync)
             .WithSummary("Get all copies of a book");
-        bookCopyItems.MapGet("/status/{bookStatus:int}", GetBookCopiesByStatusAsync)
+        bookCopyItems
+            .MapGet("/status/{bookStatus:int}", GetBookCopiesByStatusAsync)
             .WithSummary("Get book copies by status");
-        bookCopyItems.MapGet("/b/{bookId:int}/available", GetAvailableBookCopiesAsync)
+        bookCopyItems
+            .MapGet("/b/{bookId:int}/available", GetAvailableBookCopiesAsync)
             .WithSummary("Get available copies of a book");
-        bookCopyItems.MapPost("/b/{bookId:int}", AddBookCopiesAsync)
+        bookCopyItems
+            .MapPost("/b/{bookId:int}", AddBookCopiesAsync)
             .WithSummary("Add copies of a book");
-        bookCopyItems.MapPatch("/{id:int}/status", UpdateBookCopyStatusAsync)
+        bookCopyItems
+            .MapPatch("/{id:int}/status", UpdateBookCopyStatusAsync)
             .WithSummary("Update a book copy status");
-        bookCopyItems.MapDelete("/{id:int}", DeleteBookCopyAsync)
-            .WithSummary("Delete a book copy");
+        bookCopyItems.MapDelete("/{id:int}", DeleteBookCopyAsync).WithSummary("Delete a book copy");
 
         return bookCopyItems;
     }

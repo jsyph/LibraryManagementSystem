@@ -14,43 +14,36 @@ public static class UserEndpoints
     {
         var userItems = app.MapGroup("/user");
 
-        userItems.MapGet("/search", SearchUsersAsync)
-            .WithSummary("Search users");
-        userItems.MapGet("/members/{id:int}", GetMemberByIdAsync)
-            .WithSummary("Get a member by ID");
-        userItems.MapGet("/members", GetAllMembersAsync)
-            .WithSummary("Get all members");
-        userItems.MapPost("/members", AddMemberAsync)
-            .WithSummary("Create a member");
-        userItems.MapPut("/members/{id:int}", UpdateMemberAsync)
-            .WithSummary("Update a member");
-        userItems.MapDelete("/members/{id:int}", DeleteMemberAsync)
-            .WithSummary("Delete a member");
-        userItems.MapGet("/librarians/{id:int}", GetLibrarianByIdAsync)
+        userItems.MapGet("/search", SearchUsersAsync).WithSummary("Search users");
+        userItems.MapGet("/members/{id:int}", GetMemberByIdAsync).WithSummary("Get a member by ID");
+        userItems.MapGet("/members", GetAllMembersAsync).WithSummary("Get all members");
+        userItems.MapPost("/members", AddMemberAsync).WithSummary("Create a member");
+        userItems.MapPut("/members/{id:int}", UpdateMemberAsync).WithSummary("Update a member");
+        userItems.MapDelete("/members/{id:int}", DeleteMemberAsync).WithSummary("Delete a member");
+        userItems
+            .MapGet("/librarians/{id:int}", GetLibrarianByIdAsync)
             .WithSummary("Get a librarian by ID");
-        userItems.MapGet("/librarians", GetAllLibrariansAsync)
-            .WithSummary("Get all librarians");
-        userItems.MapPost("/librarians", AddLibrarianAsync)
-            .WithSummary("Create a librarian");
-        userItems.MapPut("/librarians/{id:int}", UpdateLibrarianAsync)
+        userItems.MapGet("/librarians", GetAllLibrariansAsync).WithSummary("Get all librarians");
+        userItems.MapPost("/librarians", AddLibrarianAsync).WithSummary("Create a librarian");
+        userItems
+            .MapPut("/librarians/{id:int}", UpdateLibrarianAsync)
             .WithSummary("Update a librarian");
-        userItems.MapDelete("/librarians/{id:int}", DeleteLibrarianAsync)
+        userItems
+            .MapDelete("/librarians/{id:int}", DeleteLibrarianAsync)
             .WithSummary("Delete a librarian");
-        userItems.MapGet("/admins/{id:int}", GetAdminByIdAsync)
-            .WithSummary("Get an admin by ID");
-        userItems.MapGet("/admins", GetAllAdminsAsync)
-            .WithSummary("Get all admins");
-        userItems.MapPost("/admins", AddAdminAsync)
-            .WithSummary("Create an admin");
-        userItems.MapPut("/admins/{id:int}", UpdateAdminAsync)
-            .WithSummary("Update an admin");
-        userItems.MapPatch("/{id:int}/password", ChangeUserPasswordHashAsync)
+        userItems.MapGet("/admins/{id:int}", GetAdminByIdAsync).WithSummary("Get an admin by ID");
+        userItems.MapGet("/admins", GetAllAdminsAsync).WithSummary("Get all admins");
+        userItems.MapPost("/admins", AddAdminAsync).WithSummary("Create an admin");
+        userItems.MapPut("/admins/{id:int}", UpdateAdminAsync).WithSummary("Update an admin");
+        userItems
+            .MapPatch("/{id:int}/password", ChangeUserPasswordHashAsync)
             .WithSummary("Change a user's password");
-        userItems.MapPatch("/{id:int}/activate", ActivateUserAsync)
-            .WithSummary("Activate a user");
-        userItems.MapPatch("/{id:int}/deactivate", DeactivateUserAsync)
+        userItems.MapPatch("/{id:int}/activate", ActivateUserAsync).WithSummary("Activate a user");
+        userItems
+            .MapPatch("/{id:int}/deactivate", DeactivateUserAsync)
             .WithSummary("Deactivate a user");
-        userItems.MapPatch("/members/renew", RenewMembershipAsync)
+        userItems
+            .MapPatch("/members/renew", RenewMembershipAsync)
             .WithSummary("Renew a member's membership");
 
         return userItems;

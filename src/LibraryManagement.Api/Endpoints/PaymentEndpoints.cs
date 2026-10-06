@@ -11,22 +11,20 @@ public static class PaymentEndpoints
     {
         var paymentItems = app.MapGroup("/payment");
 
-        paymentItems.MapGet("/search", SearchPaymentsAsync)
-            .WithSummary("Search payments");
-        paymentItems.MapGet("/{id:int}", GetPaymentByIdAsync)
-            .WithSummary("Get a payment by ID");
-        paymentItems.MapGet("/", GetAllPaymentsAsync)
-            .WithSummary("Get all payments");
-        paymentItems.MapGet("/borrow/{borrowRecordId:int}", GetPaymentsByBorrowRecordIdAsync)
+        paymentItems.MapGet("/search", SearchPaymentsAsync).WithSummary("Search payments");
+        paymentItems.MapGet("/{id:int}", GetPaymentByIdAsync).WithSummary("Get a payment by ID");
+        paymentItems.MapGet("/", GetAllPaymentsAsync).WithSummary("Get all payments");
+        paymentItems
+            .MapGet("/borrow/{borrowRecordId:int}", GetPaymentsByBorrowRecordIdAsync)
             .WithSummary("Get payments for a borrowing record");
-        paymentItems.MapGet("/date-range", GetAllPaymentsWithinDateRangeAsync)
+        paymentItems
+            .MapGet("/date-range", GetAllPaymentsWithinDateRangeAsync)
             .WithSummary("Get payments within a date range");
-        paymentItems.MapPost("/", AddPaymentAsync)
-            .WithSummary("Create a payment");
-        paymentItems.MapPatch("/{id:int}/status", ChangePaymentStatusAsync)
+        paymentItems.MapPost("/", AddPaymentAsync).WithSummary("Create a payment");
+        paymentItems
+            .MapPatch("/{id:int}/status", ChangePaymentStatusAsync)
             .WithSummary("Change a payment status");
-        paymentItems.MapDelete("/{id:int}", DeletePaymentAsync)
-            .WithSummary("Delete a payment");
+        paymentItems.MapDelete("/{id:int}", DeletePaymentAsync).WithSummary("Delete a payment");
 
         return paymentItems;
     }

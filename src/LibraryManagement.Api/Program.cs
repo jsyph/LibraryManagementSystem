@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.OpenApi;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi; // Correct v2.x namespace containing OpenApiDocument and OpenApiSecurityScheme
+using Microsoft.OpenApi;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,7 +57,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    
+
     // 2. Configure Scalar to use "Bearer" as default security scheme
     app.MapScalarApiReference(options =>
     {
@@ -81,16 +81,22 @@ app.MapPaymentEndpoints().RequireAuthorization();
 app.Run();
 
 // 3. Document Transformer Implementation for .NET 9+ (Microsoft.OpenApi v2.x)
-internal sealed class BearerSecuritySchemeTransformer(IAuthenticationSchemeProvider authenticationSchemeProvider) 
-    : IOpenApiDocumentTransformer
+internal sealed class BearerSecuritySchemeTransformer(
+    IAuthenticationSchemeProvider authenticationSchemeProvider
+) : IOpenApiDocumentTransformer
 {
     public async Task TransformAsync(
-        OpenApiDocument document, 
-        OpenApiDocumentTransformerContext context, 
-        CancellationToken cancellationToken)
+        OpenApiDocument document,
+        OpenApiDocumentTransformerContext context,
+        CancellationToken cancellationToken
+    )
     {
         var authenticationSchemes = await authenticationSchemeProvider.GetAllSchemesAsync();
-        if (authenticationSchemes.Any(authScheme => authScheme.Name == JwtBearerDefaults.AuthenticationScheme))
+        if (
+            authenticationSchemes.Any(authScheme =>
+                authScheme.Name == JwtBearerDefaults.AuthenticationScheme
+            )
+        )
         {
             var requirements = new Dictionary<string, IOpenApiSecurityScheme>
             {
@@ -100,8 +106,8 @@ internal sealed class BearerSecuritySchemeTransformer(IAuthenticationSchemeProvi
                     Scheme = "bearer",
                     In = ParameterLocation.Header,
                     BearerFormat = "JWT",
-                    Description = "Enter your JWT Bearer token."
-                }
+                    Description = "Enter your JWT Bearer token.",
+                },
             };
 
             document.Components ??= new OpenApiComponents();

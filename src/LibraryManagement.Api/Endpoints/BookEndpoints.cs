@@ -14,24 +14,19 @@ public static class BookEndpoints
     {
         var bookItems = app.MapGroup("/book");
 
-        bookItems.MapGet("/search", SearchBooksAsync)
-            .WithSummary("Search books");
-        bookItems.MapGet("/{id:int}", GetBookByIdAsync)
-            .WithSummary("Get a book by ID");
-        bookItems.MapGet("/", GetAllBooksAsync)
-            .WithSummary("Get all books");
-        bookItems.MapGet("/author/{authorId:int}", GetBooksByAuthorIdAsync)
+        bookItems.MapGet("/search", SearchBooksAsync).WithSummary("Search books");
+        bookItems.MapGet("/{id:int}", GetBookByIdAsync).WithSummary("Get a book by ID");
+        bookItems.MapGet("/", GetAllBooksAsync).WithSummary("Get all books");
+        bookItems
+            .MapGet("/author/{authorId:int}", GetBooksByAuthorIdAsync)
             .WithSummary("Get books by author ID");
-        bookItems.MapGet("/category/{categoryId:int}", GetBooksByCategoryAsync)
+        bookItems
+            .MapGet("/category/{categoryId:int}", GetBooksByCategoryAsync)
             .WithSummary("Get books by category ID");
-        bookItems.MapGet("/isbn/{isbn}", GetBookByIsbnAsync)
-            .WithSummary("Get a book by ISBN");
-        bookItems.MapPost("/", AddBookAsync)
-            .WithSummary("Create a book");
-        bookItems.MapPut("/{id:int}", UpdateBookAsync)
-            .WithSummary("Update a book");
-        bookItems.MapDelete("/{id:int}", DeleteBookAsync)
-            .WithSummary("Delete a book");
+        bookItems.MapGet("/isbn/{isbn}", GetBookByIsbnAsync).WithSummary("Get a book by ISBN");
+        bookItems.MapPost("/", AddBookAsync).WithSummary("Create a book");
+        bookItems.MapPut("/{id:int}", UpdateBookAsync).WithSummary("Update a book");
+        bookItems.MapDelete("/{id:int}", DeleteBookAsync).WithSummary("Delete a book");
 
         return bookItems;
     }

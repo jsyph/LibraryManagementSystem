@@ -11,23 +11,32 @@ public static class BorrowEndpoints
     {
         var borrowItems = app.MapGroup("/book/borrow");
 
-        borrowItems.MapGet("/{id:int}", GetRecordByIdAsync)
+        borrowItems
+            .MapGet("/{id:int}", GetRecordByIdAsync)
             .WithSummary("Get a borrowing record by ID");
-        borrowItems.MapGet("/copy/{bookCopyId:int}/active", GetActiveRecordByBookCopyIdAsync)
+        borrowItems
+            .MapGet("/copy/{bookCopyId:int}/active", GetActiveRecordByBookCopyIdAsync)
             .WithSummary("Get the active borrowing record for a book copy");
-        borrowItems.MapGet("/copy/{bookCopyId:int}", GetAllRecordsByBookCopyIdAsync)
+        borrowItems
+            .MapGet("/copy/{bookCopyId:int}", GetAllRecordsByBookCopyIdAsync)
             .WithSummary("Get borrowing records for a book copy");
-        borrowItems.MapGet("/user/{userId:int}/active", GetActiveRecordsByUserIdAsync)
+        borrowItems
+            .MapGet("/user/{userId:int}/active", GetActiveRecordsByUserIdAsync)
             .WithSummary("Get active borrowing records for a user");
-        borrowItems.MapGet("/user/{userId:int}", GetAllRecordsByUserIdAsync)
+        borrowItems
+            .MapGet("/user/{userId:int}", GetAllRecordsByUserIdAsync)
             .WithSummary("Get borrowing records for a user");
-        borrowItems.MapGet("/overdue", GetAllOverdueRecordsAsync)
+        borrowItems
+            .MapGet("/overdue", GetAllOverdueRecordsAsync)
             .WithSummary("Get all overdue borrowing records");
-        borrowItems.MapPost("/copy/{bookCopyId:int}", BorrowBookAsync)
+        borrowItems
+            .MapPost("/copy/{bookCopyId:int}", BorrowBookAsync)
             .WithSummary("Borrow a book copy");
-        borrowItems.MapPut("/copy/{bookCopyId:int}/return", ReturnBorrowedBookAsync)
+        borrowItems
+            .MapPut("/copy/{bookCopyId:int}/return", ReturnBorrowedBookAsync)
             .WithSummary("Return a borrowed book copy");
-        borrowItems.MapDelete("/{id:int}", DeleteRecordAsync)
+        borrowItems
+            .MapDelete("/{id:int}", DeleteRecordAsync)
             .WithSummary("Delete a borrowing record");
 
         return borrowItems;

@@ -14,16 +14,11 @@ public static class CategoryEndpoints
     {
         var categoryItems = app.MapGroup("/category");
 
-        categoryItems.MapGet("/{id:int}", GetCategoryByIdAsync)
-            .WithSummary("Get a category by ID");
-        categoryItems.MapGet("/", GetAllCategoriesAsync)
-            .WithSummary("Get all categories");
-        categoryItems.MapPost("/", AddCategoryAsync)
-            .WithSummary("Create a category");
-        categoryItems.MapPut("/{id:int}", UpdateCategoryAsync)
-            .WithSummary("Update a category");
-        categoryItems.MapDelete("/{id:int}", DeleteCategoryAsync)
-            .WithSummary("Delete a category");
+        categoryItems.MapGet("/{id:int}", GetCategoryByIdAsync).WithSummary("Get a category by ID");
+        categoryItems.MapGet("/", GetAllCategoriesAsync).WithSummary("Get all categories");
+        categoryItems.MapPost("/", AddCategoryAsync).WithSummary("Create a category");
+        categoryItems.MapPut("/{id:int}", UpdateCategoryAsync).WithSummary("Update a category");
+        categoryItems.MapDelete("/{id:int}", DeleteCategoryAsync).WithSummary("Delete a category");
 
         return categoryItems;
     }
