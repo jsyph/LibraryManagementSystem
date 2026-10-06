@@ -1,10 +1,10 @@
 # 📚 Library Management System API
 
-A RESTful Web API built with **ASP.NET Core** and **Entity Framework Core** following **Clean Architecture** principles. This system enables librarians to efficiently manage books, authors, categories, members, and borrowing workflows.
+A RESTful Web API built with **ASP.NET Core** and **Entity Framework Core** following **Clean Architecture** principles. This system enables librarians to efficiently manage books, authors, categories, users, and borrowing workflows.
 
 ## 🎯 Project Overview & Purpose
 
-The main objective of this project is to provide a robust back-end system for managing library operations. It automates day-to-day administrative tasks such as tracking inventory, keeping records of members and authors, and handling book borrowing and returns reliably.
+The main objective of this project is to provide a robust back-end system for managing library operations. It automates day-to-day administrative tasks such as tracking inventory, keeping records of users and authors, and handling book borrowing and returns reliably.
 
 ## 🏗️ Architecture & Technology Stack
 
@@ -44,15 +44,15 @@ The main objective of this project is to provide a robust back-end system for ma
 
 * Retrieve all books belonging to a specific category.
 
-### 👤 4. Member Management
+### 👤 4. User Management
 
-* Register, update, and remove library members.
+* Register, update, and remove library users.
 
-* View member profiles and track member borrowing history.
+* View user profiles and track user borrowing history.
 
 ### 🔄 5. Borrowing & Return Operations
 
-* **Borrow Books:** Issue books to active members.
+* **Borrow Books:** Issue books to active users.
 
 * **Return Books:** Process book returns and update inventory state.
 
